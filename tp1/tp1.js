@@ -7,9 +7,18 @@ let spriteCam = 0;
 let x = 25;
 let vel = 0.05;
 
+//variables para la escena 0
+let areaX1 = 300;
+let areaY1 = 260;
+let pos1 = false;
+
+let areaX2 = 200;
+let areaY2 = 260;
+let pos2 = false;
+
 let estado = 0;
 
-async function setup() {
+function setup() {
   createCanvas(800, 800);
 
   //carga de imagenes
@@ -27,26 +36,85 @@ async function setup() {
 function draw() {
   background(220);
 
-//movimiento de x
+  //movimiento de x
   x += 5;
 
-  if (x>width+30) {
-    x = -25;
-    if (spriteFon < 3) {
-      spriteFon++;
-    } else {
-      spriteFon = 0;
-    }
-  }
-  
-  image(fondo[spriteFon], 0, 0, width, 700);
+  if (estado===0) {
 
-  caminar(); //llamar funcion para que se haga el cambio
-  image(caminata[spriteCam], x, 50, 500, 700);
+    image(fondo[spriteFon], 0, 0, width, 700);
+    image(caminata[5], 450, 30, 500, 700);
+
+    //rectangulos que marcan a donde arrastrar
+    rect(510, 300, 30, 60);
+    rect(565, 300, 30, 60);
+
+    if (pos1) {
+      areaX1 = mouseX - 25;
+      areaY1 = mouseY - 30;
+    } else if (pos2) {
+      areaX2 = mouseX - 15;
+      areaY2 = mouseY - 30;
+    } else {
+    }
+    
+    fill(252, 3, 3);
+    rect(areaX1, areaY1, 30, 60);
+    fill(252, 3, 3);
+    rect(areaX2, areaY2, 30, 60);
+    
+    //la distancia ayuda a que no sea en los pixeles exactos
+    let dist1 = dist(areaX1, areaY1, 510, 300);
+    let dist2 = dist(areaX2, areaY2, 565, 300);
+
+    if (dist1 < 15 && dist2 < 15 && !pos1 && !pos2) { // si cumple el lugar y si se solto el bloque
+      estado=1;
+      //1
+      areaX1 = 510;
+      areaY1 = 300;
+      //2
+      areaX2 = 565;
+      areaY2 = 300;
+      //para caminata
+    } else {
+    }
+    
+  } else if (estado===1) {
+    if (x>width+30) {
+      x = -25;
+      if (spriteFon < 2) {
+        spriteFon++;
+      } else {
+        spriteFon = 0;
+      }
+    }
+    image(fondo[spriteFon], 0, 0, width, 700);
+    caminar(); //llamar funcion para que se haga el cambio
+    image(caminata[spriteCam], x, 30, 500, 700);
+  }
 }
 
 function caminar() {
-  
+
   //floor redondea el resultado de frameCount y el modulo lo divide por la cantidad de sprites
   spriteCam = floor(frameCount/5)%5;
+}
+
+function mousePressed() {
+  if (pos1) {
+    pos1 = false; //soltar
+  } else {
+    //area definida
+    if (mouseX > areaX1 && mouseX < areaX1 + 30 && mouseY > areaY1 && mouseY < areaY1 + 60) {
+      pos1 = true;
+    }
+  }
+
+  if (pos2) {
+    pos2 = false; //soltar
+  } else {
+    //area definida
+    if (mouseX > areaX2 && mouseX < areaX2 + 30 && mouseY > areaY2 && mouseY < areaY2 + 60) {
+      pos2 = true;
+    }
+  }
 }
