@@ -7,6 +7,9 @@ let spriteFon = 0;
 let spriteCam = 0;
 
 let x = 25;
+let contador = 0;
+let volver= false;
+let btn= false;
 
 //variables para la escena 0
 let areaX1 = 300;
@@ -37,7 +40,7 @@ function setup() {
     mesas[i] = loadImage("/data/mesas/"+ nf(i, 2) + ".png");
     console.log("/data/mesas/"+ nf(i, 2) + ".png CARGADO");
   }
-  
+
   for (let i=0; i<2; i++) {
     clientes[i] = loadImage("/data/clientes/"+ nf(i, 4) + ".png");
     console.log("/data/clientes/"+ nf(i, 4) + ".png CARGADO");
@@ -46,7 +49,6 @@ function setup() {
 
 function draw() {
   background(220);
-
 
   if (estado===0) {
 
@@ -88,40 +90,80 @@ function draw() {
       x = 300;
     } else {
     }
-    
   } else if (estado===1) {
-    image(fondo[spriteFon], 0, -80, width, 700);
+
     x += 10;
+
+    image(fondo[spriteFon], 0, -80, width, 700);
     caminar(); //llamar funcion para que se haga el cambio
     image(caminata[spriteCam], x, -50, 500, 700);
     cambio();
-    
   } else if (estado===2) {
+
     image(fondo[spriteFon], 0, -80, width, 700);
-    
+
     image(mesas[0], 100, -10, 400, 600);
     image(mesas[3], 120, -10, 400, 600);
     image(clientes[1], 120, 0, 400, 600);
-      
-    x += 10;
-    caminar(); //llamar funcion para que se haga el cambio
-    image(caminata[spriteCam], x, -50, 500, 700);
+
+    //detenersee en la mesa
+    if (x<90) {
+      x += 10;
+      caminar();
+      image(caminata[spriteCam], x, -50, 500, 700);
+    } else if (contador<100) {
+      x=300;
+      contador++;
+      image(caminata[5], x, -50, 500, 700);
+    } else {
+      //al terminar la espera
+      x+=10;
+      caminar();
+      image(caminata[spriteCam], x, -50, 500, 700);
+    }
+
     cambio();
-    
   } else if (estado==3) {
+
     image(fondo[spriteFon], 0, -80, width, 700);
-    
+
     image(mesas[3], 120, -10, 400, 600);
     image(mesas[1], 100, -10, 400, 600);
     image(clientes[0], 120, -10, 400, 600);
     image(mesas[2], 100, -10, 400, 600);
-    
-    x += 10;
-    caminar(); //llamar funcion para que se haga el cambio
-    image(caminata[spriteCam], x, -50, 500, 700);
+
+    if (x<90) {
+      x += 10;
+      caminar();
+      image(caminata[spriteCam], x, -50, 500, 700);
+    } else if (contador<100) {
+      x=300;
+      contador++;
+      image(caminata[5], x, -50, 500, 700);
+    } else {
+      image(caminata[5], x, -50, 500, 700);
+      estado=4;
+    }
+
     cambio();
+
+  } else if (estado===4) {
+     if (btn) {
+    
+    image(fondo[fondo.length - 1], 0, -80, width, 700);
+
+      fill(255);
+      rect(762, 521, 100, 50);
+
+      fill(0);
+      textAlign(CENTER, CENTER);
+      text("volver", 710, 525);
+      
+      return;
+    }
   }
 }
+
 
 
 function caminar() {
@@ -131,9 +173,9 @@ function caminar() {
 }
 
 function mousePressed() {
-  
+
   console.log(mouseX, mouseY);
-  
+
   if (pos1) {
     pos1 = false; //soltar
   } else {
@@ -151,24 +193,53 @@ function mousePressed() {
       pos2 = true;
     }
   }
+
+  reiniciar();
+}
+
+
+function reiniciar() {
+  if (mouseX > 650 && mouseX < 770 && mouseY > 500 && mouseY < 550) {
+
+    spriteFon = 0;
+    estado = 0;
+    contador = 0;
+    x = 25;
+
+    areaX1 = 300;
+    areaY1 = 180;
+
+    areaX2 = 200;
+    areaY2 = 180;
+
+    pos1 = false;
+    pos2 = false;
+
+    btn = false;
+
+    console.log("vuelve a 0");
+  }
 }
 
 function cambio() {
   //cambio de escena
   if (x>width+500) {
-    x = -300;
     estado++;
     spriteFon++;
+    contador=0;
 
     //se pasa el fondo
     if (spriteFon >= fondo.length) {
-      spriteFon=0;
-      estado=0;
-      console.log("vuelve a 0");
-    }
+      btn=true;
 
+      console.log("vuelve a 0");
+      
+      return;
+    }
+    
+    x = -300;
+    
     console.log("escena ", estado, " cargada");
     console.log("fondo ", spriteFon, " cargada");
   }
-  
 }
