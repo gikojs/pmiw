@@ -1,11 +1,12 @@
 let fondo = [];
 let caminata = [];
+let mesas = [];
+let clientes = [];
+
 let spriteFon = 0;
 let spriteCam = 0;
 
-//deltaTime
 let x = 25;
-let vel = 0.05;
 
 //variables para la escena 0
 let areaX1 = 300;
@@ -31,17 +32,26 @@ function setup() {
     caminata[i] = loadImage("/data/caminata/" + nf(i, 3) + ".png");
     console.log("/data/caminata/" + nf(i, 3) + ".png CARGADO");
   }
+
+  for (let i=0; i<4; i++) {
+    mesas[i] = loadImage("/data/mesas/"+ nf(i, 2) + ".png");
+    console.log("/data/mesas/"+ nf(i, 2) + ".png CARGADO");
+  }
+  
+  for (let i=0; i<2; i++) {
+    clientes[i] = loadImage("/data/clientes/"+ nf(i, 4) + ".png");
+    console.log("/data/clientes/"+ nf(i, 4) + ".png CARGADO");
+  }
 }
 
 function draw() {
   background(220);
 
-  //movimiento de x
-  x += 5;
 
   if (estado===0) {
 
     image(fondo[spriteFon], 0, 0, width, 700);
+
     image(caminata[5], 450, 30, 500, 700);
 
     //rectangulos que marcan a donde arrastrar
@@ -56,12 +66,12 @@ function draw() {
       areaY2 = mouseY - 30;
     } else {
     }
-    
+
     fill(252, 3, 3);
     rect(areaX1, areaY1, 30, 60);
     fill(252, 3, 3);
     rect(areaX2, areaY2, 30, 60);
-    
+
     //la distancia ayuda a que no sea en los pixeles exactos
     let dist1 = dist(areaX1, areaY1, 510, 300);
     let dist2 = dist(areaX2, areaY2, 565, 300);
@@ -75,23 +85,21 @@ function draw() {
       areaX2 = 565;
       areaY2 = 300;
       //para caminata
+      x = 300;
     } else {
     }
     
   } else if (estado===1) {
-    if (x>width+30) {
-      x = -25;
-      if (spriteFon < 2) {
-        spriteFon++;
-      } else {
-        spriteFon = 0;
-      }
-    }
     image(fondo[spriteFon], 0, 0, width, 700);
+    x += 5;
     caminar(); //llamar funcion para que se haga el cambio
     image(caminata[spriteCam], x, 30, 500, 700);
+    cambio();
+    
+  } else if (estado===2) {
   }
 }
+
 
 function caminar() {
 
@@ -116,5 +124,24 @@ function mousePressed() {
     if (mouseX > areaX2 && mouseX < areaX2 + 30 && mouseY > areaY2 && mouseY < areaY2 + 60) {
       pos2 = true;
     }
+  }
+}
+
+function cambio() {
+  //cambio de escena
+  if (x>width+500) {
+    x = -500;
+    estado++;
+    spriteFon++;
+
+    //se pasa el fondo
+    if (spriteFon >= fondo.length) {
+      spriteFon=0;
+      estado=0;
+      console.log("vuelve a 0");
+    }
+
+    console.log("escena ", estado, " cargada");
+    console.log("fondo ", spriteFon, " cargada");
   }
 }
