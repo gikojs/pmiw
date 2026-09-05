@@ -8,6 +8,7 @@ let spriteFon = 0;
 let spriteCam = 0;
 
 let x = 25;
+let vel = 10;
 let contador = 0;
 let contadorp = 0;
 let volver= false;
@@ -61,12 +62,16 @@ function draw() {
 
     image(fondo[spriteFon], 0, -80, width, 700);
 
+    textAlign(CENTER, CENTER);
+    textSize(20);
+    fill(255);
+    text("arrastra los postres", 405, 55);
+    text(" a la bandeja", 402, 90);
+
     image(caminata[5], 450, -50, 500, 700);
 
     //rectangulos que marcan a donde arrastrar;
-    rect(510, 220, 30, 60);
     image(mesas[4], 480, 170, 90, 120);
-    rect(565, 220, 30, 60);
     image(mesas[5], 535, 180, 90, 120);
 
     if (pos1) {
@@ -78,11 +83,7 @@ function draw() {
     } else {
     }
 
-    fill(252, 3, 3);
-    rect(areaX1, areaY1, 30, 60);
     image(mesas[4], areaX1-30, areaY1-50, 90, 120);
-    fill(252, 3, 3);
-    rect(areaX2, areaY2, 30, 60);
     image(mesas[5], areaX2-30, areaY2-35, 90, 120);
 
 
@@ -104,10 +105,10 @@ function draw() {
     }
   } else if (estado===1) {
 
-    x += 10;
+    x += vel;
 
     image(fondo[spriteFon], 0, -80, width, 700);
-    caminar(); //llamar funcion para que se haga el cambio
+    caminar(5); //llamar funcion para que se haga el cambio
     image(caminata[spriteCam], x, -50, 500, 700);
     //postres avanzando con el personaje
     image(mesas[5], x+400, areaY2-35, 90, 120);
@@ -121,7 +122,7 @@ function draw() {
     image(mesas[3], 120, -10, 400, 600);
     //funcion de las burbujas de espera
     contadorp++
-    burbuja(paciencia(contadorp), 10, 10);
+      burbuja(paciencia(contadorp), 10, 10);
 
     //mostrar la imagem del postre hasta que se complete el pedido
     if (contadorp<70) {
@@ -132,9 +133,11 @@ function draw() {
     //detenersee en la mesa
     if (x<90) {
       image(clientes[1], 120, 0, 400, 600);
-      x += 10;
-      caminar();
+      x += vel;
+      caminar(5);
       image(caminata[spriteCam], x, -50, 500, 700);
+      image(mesas[5], x+370, 150, 90, 120);
+      image(mesas[4], x+330, 150, 90, 120);
     } else if (contador<100) {
       x=300;
       contador++;
@@ -143,11 +146,12 @@ function draw() {
     } else {
       //al terminar la espera
       x+=10;
-      caminar();
+      caminar(5);
       image(clientes[5], 120, 0, 400, 600);
       image(mesas[4], 200, 180, 120, 120);
       image(caminata[spriteCam], x, -50, 500, 700);
-      contadorp=0;
+      image(mesas[5], x+370, 150, 90, 120);
+     contadorp=0;
     }
 
     cambio();
@@ -159,7 +163,7 @@ function draw() {
     image(mesas[1], 100, -10, 400, 600);
 
     contadorp++
-    burbuja(paciencia(contadorp), 10, 10);
+      burbuja(paciencia(contadorp), 10, 10);
 
     //mostrar la imagem del postre hasta que se complete el pedido
     if (contadorp<70) {
@@ -171,9 +175,10 @@ function draw() {
     if (x<90) {
       image(clientes[0], 120, -10, 400, 600);
       image(mesas[2], 100, -10, 400, 600);
-      x += 10;
-      caminar();
+      x += vel;
+      caminar(5);
       image(caminata[spriteCam], x, -50, 500, 700);
+      image(mesas[5], x+370, 150, 90, 120);
     } else if (contador<100) {
       x=300;
       contador++;
@@ -196,7 +201,7 @@ function draw() {
   } else if (estado === 4) {
 
     image(fondo[fondo.length - 1], 0, -80, width, 700);
-    
+
     image(mesas[3], 120, -10, 400, 600);
     image(mesas[1], 100, -10, 400, 600);
     image(clientes[4], 120, -10, 400, 600);
@@ -216,10 +221,9 @@ function draw() {
 
 
 
-function caminar() {
-
+function caminar(sprites) {
   //floor redondea el resultado de frameCount y el modulo lo divide por la cantidad de sprites
-  spriteCam = floor(frameCount/5)%5;
+  spriteCam = floor(frameCount/5)%sprites;
 }
 
 function mousePressed() {
