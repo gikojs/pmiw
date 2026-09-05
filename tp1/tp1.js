@@ -2,12 +2,14 @@ let fondo = [];
 let caminata = [];
 let mesas = [];
 let clientes = [];
+let burbujas = [];
 
 let spriteFon = 0;
 let spriteCam = 0;
 
 let x = 25;
 let contador = 0;
+let contadorp = 0;
 let volver= false;
 let btn= false;
 
@@ -31,19 +33,24 @@ function setup() {
     console.log("/data/fondos/fondo" + nf(i, 2) + ".png CARGADO");
   }
 
-  for (let i=0; i<6; i++) {
+  for (let i=0; i<8; i++) {
     caminata[i] = loadImage("/data/caminata/" + nf(i, 3) + ".png");
     console.log("/data/caminata/" + nf(i, 3) + ".png CARGADO");
   }
 
-  for (let i=0; i<4; i++) {
+  for (let i=0; i<6; i++) {
     mesas[i] = loadImage("/data/mesas/"+ nf(i, 2) + ".png");
     console.log("/data/mesas/"+ nf(i, 2) + ".png CARGADO");
   }
 
-  for (let i=0; i<2; i++) {
+  for (let i=0; i<6; i++) {
     clientes[i] = loadImage("/data/clientes/"+ nf(i, 4) + ".png");
     console.log("/data/clientes/"+ nf(i, 4) + ".png CARGADO");
+  }
+
+  for (let i=0; i<4; i++) {
+    burbujas[i] = loadImage("/data/burbujas/b"+ nf(i, 2) + ".png");
+    console.log("/data/clientes/"+ nf(i, 2) + ".png CARGADO");
   }
 }
 
@@ -56,9 +63,11 @@ function draw() {
 
     image(caminata[5], 450, -50, 500, 700);
 
-    //rectangulos que marcan a donde arrastrar
+    //rectangulos que marcan a donde arrastrar;
     rect(510, 220, 30, 60);
+    image(mesas[4], 480, 170, 90, 120);
     rect(565, 220, 30, 60);
+    image(mesas[5], 535, 180, 90, 120);
 
     if (pos1) {
       areaX1 = mouseX - 25;
@@ -71,8 +80,11 @@ function draw() {
 
     fill(252, 3, 3);
     rect(areaX1, areaY1, 30, 60);
+    image(mesas[4], areaX1-30, areaY1-50, 90, 120);
     fill(252, 3, 3);
     rect(areaX2, areaY2, 30, 60);
+    image(mesas[5], areaX2-30, areaY2-35, 90, 120);
+
 
     //la distancia ayuda a que no sea en los pixeles exactos
     let dist1 = dist(areaX1, areaY1, 510, 220);
@@ -97,6 +109,9 @@ function draw() {
     image(fondo[spriteFon], 0, -80, width, 700);
     caminar(); //llamar funcion para que se haga el cambio
     image(caminata[spriteCam], x, -50, 500, 700);
+    //postres avanzando con el personaje
+    image(mesas[5], x+400, areaY2-35, 90, 120);
+    image(mesas[4], x+350, areaY1-50, 90, 120);
     cambio();
   } else if (estado===2) {
 
@@ -104,22 +119,35 @@ function draw() {
 
     image(mesas[0], 100, -10, 400, 600);
     image(mesas[3], 120, -10, 400, 600);
-    image(clientes[1], 120, 0, 400, 600);
+    //funcion de las burbujas de espera
+    contadorp++
+    burbuja(paciencia(contadorp), 10, 10);
+
+    //mostrar la imagem del postre hasta que se complete el pedido
+    if (contadorp<70) {
+      image(mesas[4], 124, 30, 90, 90);
+    } else {
+    }
 
     //detenersee en la mesa
     if (x<90) {
+      image(clientes[1], 120, 0, 400, 600);
       x += 10;
       caminar();
       image(caminata[spriteCam], x, -50, 500, 700);
     } else if (contador<100) {
       x=300;
       contador++;
-      image(caminata[5], x, -50, 500, 700);
+      image(clientes[3], 120, 0, 400, 600);
+      image(caminata[6], x, -50, 500, 700);
     } else {
       //al terminar la espera
       x+=10;
       caminar();
+      image(clientes[5], 120, 0, 400, 600);
+      image(mesas[4], 200, 180, 120, 120);
       image(caminata[spriteCam], x, -50, 500, 700);
+      contadorp=0;
     }
 
     cambio();
@@ -129,38 +157,60 @@ function draw() {
 
     image(mesas[3], 120, -10, 400, 600);
     image(mesas[1], 100, -10, 400, 600);
-    image(clientes[0], 120, -10, 400, 600);
-    image(mesas[2], 100, -10, 400, 600);
 
+    contadorp++
+    burbuja(paciencia(contadorp), 10, 10);
+
+    //mostrar la imagem del postre hasta que se complete el pedido
+    if (contadorp<70) {
+      image(mesas[5], 124, 30, 70, 90);
+    } else {
+    }
+
+    //detenersee en la mesa
     if (x<90) {
+      image(clientes[0], 120, -10, 400, 600);
+      image(mesas[2], 100, -10, 400, 600);
       x += 10;
       caminar();
       image(caminata[spriteCam], x, -50, 500, 700);
     } else if (contador<100) {
       x=300;
       contador++;
-      image(caminata[5], x, -50, 500, 700);
+      image(clientes[2], 120, -10, 400, 600);
+      image(mesas[2], 100, -10, 400, 600);
+      image(caminata[6], x, -50, 500, 700);
     } else {
-      image(caminata[5], x, -50, 500, 700);
-      estado=4;
+      //al terminar la espera
+      image(clientes[4], 120, -10, 400, 600);
+      image(mesas[2], 100, -10, 400, 600);
+      image(mesas[5], 200, 180, 120, 120);
+      image(caminata[7], x, -50, 500, 700);
+
+      contadorp=0;
+      btn = true;
+      estado = 4;
     }
 
     cambio();
+  } else if (estado === 4) {
 
-  } else if (estado===4) {
-     if (btn) {
-    
     image(fondo[fondo.length - 1], 0, -80, width, 700);
+    
+    image(mesas[3], 120, -10, 400, 600);
+    image(mesas[1], 100, -10, 400, 600);
+    image(clientes[4], 120, -10, 400, 600);
+    image(mesas[2], 100, -10, 400, 600);
+    image(mesas[5], 200, 180, 90, 120);
+    image(caminata[7], x, -50, 500, 700);
 
-      fill(255);
-      rect(762, 521, 100, 50);
+    fill(255);
+    rect(650, 500, 120, 50);
 
-      fill(0);
-      textAlign(CENTER, CENTER);
-      text("volver", 710, 525);
-      
-      return;
-    }
+    fill(0);
+    textSize(30);
+    textAlign(CENTER, CENTER);
+    text("volver", 710, 525);
   }
 }
 
@@ -233,13 +283,29 @@ function cambio() {
       btn=true;
 
       console.log("vuelve a 0");
-      
+
       return;
     }
-    
+
     x = -300;
-    
+
     console.log("escena ", estado, " cargada");
     console.log("fondo ", spriteFon, " cargada");
+  }
+}
+
+function paciencia(contadorp) {
+  return 100-contadorp;
+}
+
+function burbuja(paciencia, x, y) {
+  if (paciencia > 80) {
+    image(burbujas[0], x, y, 600, 600);
+  } else if (paciencia > 50) {
+    image(burbujas[1], x, y, 600, 600);
+  } else  if (paciencia > 30) {
+    image(burbujas[2], x, y, 600, 600);
+  } else {
+    image(burbujas[3], x, y, 600, 600);
   }
 }
