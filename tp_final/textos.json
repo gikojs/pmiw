@@ -1,0 +1,14 @@
+{
+    "0": {
+        "titulo": "a",
+        "boton1": "opcion 1",
+        "boton2": "opcion 2"
+    },
+
+    "1": {
+        "titulo": "a",
+        "boton1": "opcion 1",
+        "boton2": "opcion 2",
+        "boton3": "opcion 3"
+    }
+}
