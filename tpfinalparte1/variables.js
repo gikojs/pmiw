@@ -44,9 +44,9 @@ let btn_b = {
 };
 
 let btn_volver = {
-  x: 600,
+  x: 700,
   y: 400,
-  ancho: 250,
+  ancho: 150,
   alto: 50,
 };
 
@@ -72,7 +72,7 @@ let btn_ant = {
 }
 
 let btn_sig = {
-  x: 650,
+  x: 700,
   y: 400,
   ancho: 100,
   alto: 50,

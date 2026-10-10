@@ -1,31 +1,79 @@
 {
     "0": {
-        "titulo": "explicacion de como se despierta",
+        "titulo": "Martina se esta preparando para su UPD, planea que todo dalga perfecto pero dependiendo que decision tome puede afectar el final del festejo, ayudala a tener una noche tranquila donde se divierta junto a sus amigos.",
         "boton1": "atras",
         "boton2": "siguiente"
     },
 
     "1": {
-        "titulo": "continua explicando",
+        "titulo": "Martina prefirio dormir una siesta para no tener sueño a la noche y al despertar preparia todo para ir, pero durmio de mas y se desperto a las 19 de la noche",
         "boton1": "atras",
         "boton2": "siguiente"
     },
 
     "2": {
-        "titulo": "¿Como debería arreglarse?",
-        "boton1": "Arreglarse bien",
-        "boton2": "Arreglarse poco"
+        "titulo": "Preocupada Martina va a la sala de la casa a ver que es lo que falta por hacer, en la sala se encuentra todo hecho un lio y con un monton de cosas por hacer",
+        "boton1": "atras",
+        "boton2": "siguiente"
     },
 
     "3": {
-        "titulo": "decide arreglarse bien",
-        "boton1": "atras",
-        "boton2": "siguiente"
+        "titulo": "¿Como debería arreglarse?",
+        "boton1": "Arreglarse completamente",
+        "boton2": "Arreglarse poco"
     },
     
     "4": {
-        "titulo": "decide arreglarse poco",
+        "titulo": "decide arreglarse poco para ahorrar tiempo y poder ir a la previa",
         "boton1": "atras",
         "boton2": "siguiente"
+    },
+
+    "5": {
+        "titulo": "decide arreglarse bien y no ir a la previa, despues se encontrará con sus amigas para ir al boliche",
+        "boton1": "atras",
+        "boton2": "siguiente"
+    },
+
+    "6": {
+        "titulo": "Al terminar de arreglarse un poco, sale rumbo a la previa mientras termina de arreglar el remeron",
+        "boton1": "atras",
+        "boton2": "siguiente"
+    },
+
+    "7": {
+        "titulo": "Al llegar se encuentra con sus amigas y esperan a que se acerque la hora de entrada para ir al boliche, en medio de la espera una amiga propone empezar a beber ahí.¿Deberían empezar o esperar a llegar al boliche?",
+        "boton1": "Comer algo y esperar a llegar al boliche",
+        "boton2": "Empieza a tomar demasiado en la previa"
+    },
+
+    "8": {
+        "titulo": "Deciden empezar a tomar antes de ir",
+        "boton1": "atras",
+        "boton2": "siguiente"
+    },
+
+    "9": {
+        "titulo": "A medida que van bebiendo mas se olvidan de comer algo, mientras mas pasa beben mas",
+        "boton1": "atras",
+        "boton2": "siguiente"
+    },
+
+    "10": {
+        "titulo": "Le comienza a caer mal el alcohol, como se esta empezando a poner mal la llevan al medico. Tomar mucho alcohol sin control puede afectar a la salud, por eso si van a tomar haganlo con cuidado",
+        "boton1": "Voler a empezar",
+        "finales": "final 1"
+    },
+
+    "11": {
+        "titulo": "En vez de empezar a tomar tan temprano deciden pedir comida mientras esperan que avance el tiempo",
+        "boton1": "atras",
+        "boton2": "siguiente"
+    },
+
+    "12": {
+        "titulo": "Como tiene poco tiempo necesita darle prioridad a algo para poder llegar bien al boliche, porque a la previa ya no llega asi que va a encontrar a sus amigos en la plaza",
+        "boton1": "Enfocarse en el maquillaje",
+        "boton2": "Maquillarse rapido"
     }
 }

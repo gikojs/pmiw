@@ -4,10 +4,15 @@ function setup() {
   loadJSON('textos.json', t_completos);
 
   menu = loadImage('data/menu.jpg');
+  img0 = loadImage('data/1.jpg');
   img1 = loadImage('data/2.jpg');
   img2 = loadImage('data/3.jpg');
   img3 = loadImage('data/4.jpg');
   img4 = loadImage('data/5.jpg');
+  img5 = loadImage('data/9.jpg');
+  img6 = loadImage('data/10.jpg');
+  img7 = loadImage('data/11.jpg');
+  img8 = loadImage('data/12.jpg');
 
   estado = 0;
   btncolor = color(222);
@@ -44,6 +49,8 @@ function mousePressed() {
     if (nodo == 1) {
       if (btnarea(btn_sig.x, btn_sig.y, btn_sig.ancho, btn_sig.alto)) {
         nodo = 2;
+      } else if (btnarea(btn_ant.x, btn_ant.y, btn_ant.ancho, btn_ant.alto)) {
+        estado = 0;
       }
     } else if (nodo == 2) {
       if (btnarea(btn_sig.x, btn_sig.y, btn_sig.ancho, btn_sig.alto)) {
@@ -52,10 +59,62 @@ function mousePressed() {
         nodo = 1;
       }
     } else if (nodo == 3) {
-      if (btnarea(btn_a.x, btn_a.y, btn_a.ancho, btn_a.alto)) {
+      if (btnarea(btn_sig.x, btn_sig.y, btn_sig.ancho, btn_sig.alto)) {
         nodo = 4;
+      } else if (btnarea(btn_ant.x, btn_ant.y, btn_ant.ancho, btn_ant.alto)) {
+        nodo = 2;
+      }
+    } else if (nodo == 4) { //primera desiciom
+      if (btnarea(btn_a.x, btn_a.y, btn_a.ancho, btn_a.alto)) {
+        nodo = 6;
       } else if (btnarea(btn_b.x, btn_b.y, btn_b.ancho, btn_b.alto)) {
         nodo = 5;
+      }
+    } else if (nodo == 5) {
+      if (btnarea(btn_sig.x, btn_sig.y, btn_sig.ancho, btn_sig.alto)) {
+        nodo = 7;
+      }
+    } else if (nodo == 6) {
+      if (btnarea(btn_sig.x, btn_sig.y, btn_sig.ancho, btn_sig.alto)) {
+        nodo = 13;
+      } else if (btnarea(btn_ant.x, btn_ant.y, btn_ant.ancho, btn_ant.alto)) {
+        nodo = 4;
+      }
+    } else if (nodo == 7) {
+      if (btnarea(btn_sig.x, btn_sig.y, btn_sig.ancho, btn_sig.alto)) {
+        nodo = 8;
+      } else if (btnarea(btn_ant.x, btn_ant.y, btn_ant.ancho, btn_ant.alto)) {
+        nodo = 5;
+      }
+    } else if (nodo == 8) {
+      if (btnarea(btn_a.x, btn_a.y, btn_a.ancho, btn_a.alto)) {
+        nodo = 12;
+      } else if (btnarea(btn_b.x, btn_b.y, btn_b.ancho, btn_b.alto)) {
+        nodo = 9;
+      }
+    } else if (nodo == 9) {
+      if (btnarea(btn_sig.x, btn_sig.y, btn_sig.ancho, btn_sig.alto)) {
+        nodo = 10;
+      }
+    } else if (nodo == 10) {
+      if (btnarea(btn_sig.x, btn_sig.y, btn_sig.ancho, btn_sig.alto)) {
+        nodo = 11;
+      } else if (btnarea(btn_ant.x, btn_ant.y, btn_ant.ancho, btn_ant.alto)) {
+        nodo = 9;
+      }
+    } else if (nodo == 11) {
+      if (btnarea(btn_volver.x, btn_volver.y, btn_volver.ancho, btn_volver.alto)) {
+        estado = 0;
+      }
+    } else if (nodo == 12) {
+      if (btnarea(btn_sig.x, btn_sig.y, btn_sig.ancho, btn_sig.alto)) {
+        nodo = 11; //poner dsp lo que va
+      }
+    } else if (nodo == 13) {
+      if (btnarea(btn_a.x, btn_a.y, btn_a.ancho, btn_a.alto)) {
+        nodo = 14;
+      } else if (btnarea(btn_b.x, btn_b.y, btn_b.ancho, btn_b.alto)) {
+        nodo = 17;
       }
     }
   }
