@@ -13,6 +13,11 @@ function setup() {
   img6 = loadImage('data/10.jpg');
   img7 = loadImage('data/11.jpg');
   img8 = loadImage('data/12.jpg');
+  img9 = loadImage('data/13.jpg');
+  img10 = loadImage('data/14.jpg');
+  img11 = loadImage('data/15.jpg');
+  img12 = loadImage('data/16.jpg');
+  img13 = loadImage('data/17.jpg');
 
   estado = 0;
   btncolor = color(222);
@@ -108,13 +113,57 @@ function mousePressed() {
       }
     } else if (nodo == 12) {
       if (btnarea(btn_sig.x, btn_sig.y, btn_sig.ancho, btn_sig.alto)) {
-        nodo = 11; //poner dsp lo que va
+        nodo = 19;
+        nodo12 = true;
       }
     } else if (nodo == 13) {
       if (btnarea(btn_a.x, btn_a.y, btn_a.ancho, btn_a.alto)) {
         nodo = 14;
       } else if (btnarea(btn_b.x, btn_b.y, btn_b.ancho, btn_b.alto)) {
+        nodo = 16;
+      }
+    } else if (nodo == 14) {
+      if (btnarea(btn_sig.x, btn_sig.y, btn_sig.ancho, btn_sig.alto)) {
+        nodo = 15;
+      }
+    } else if (nodo == 15) {
+      if (btnarea(btn_sig.x, btn_sig.y, btn_sig.ancho, btn_sig.alto)) {
+        nodo = 19;
+        nodo15 = true;
+      } else if (btnarea(btn_ant.x, btn_ant.y, btn_ant.ancho, btn_ant.alto)) {
+        nodo = 14;
+      }
+    } else if (nodo == 16) {
+      if (btnarea(btn_sig.x, btn_sig.y, btn_sig.ancho, btn_sig.alto)) {
         nodo = 17;
+      }
+    } else if (nodo == 17) {
+      if (btnarea(btn_sig.x, btn_sig.y, btn_sig.ancho, btn_sig.alto)) {
+        nodo = 18;
+      } else if (btnarea(btn_ant.x, btn_ant.y, btn_ant.ancho, btn_ant.alto)) {
+        nodo = 16;
+      }
+    } else if (nodo == 18) {
+      if (btnarea(btn_sig.x, btn_sig.y, btn_sig.ancho, btn_sig.alto)) {
+        nodo = 19;
+        nodo18 = true;
+      } else if (btnarea(btn_ant.x, btn_ant.y, btn_ant.ancho, btn_ant.alto)) {
+        nodo = 17;
+      }
+    } else if (nodo == 19) {
+      if (btnarea(btn_sig.x, btn_sig.y, btn_sig.ancho, btn_sig.alto)) {
+        nodo = 20;
+      } else if (btnarea(btn_ant.x, btn_ant.y, btn_ant.ancho, btn_ant.alto)) {
+        if (nodo12 == true) {
+          nodo = 12;
+          nodo12 = false;
+        } else if (nodo15 == true) {
+          nodo = 15
+          nodo15 = false;
+        } else if (nodo18 == true) {
+          nodo = 18;
+          nodo18 = false;
+        }
       }
     }
   }

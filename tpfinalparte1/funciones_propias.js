@@ -216,7 +216,7 @@ function historia() {
     fill(0);
     text(textos[3].boton2, btn_b.x, btn_b.y);
   } else if (nodo == 5) { //arreglarse poco
-    image(img3, 0, 0, width, height);
+    image(img11, 0, 0, width, height);
     fill(0);
     rect(400, 400, 800, 200);
 
@@ -269,7 +269,7 @@ function historia() {
     fill(0);
     text(textos[5].boton2, btn_sig.x, btn_sig.y);
   } else if (nodo == 7) {
-    image(img5, 0, 0, width, height);
+    image(img12, 0, 0, width, height);
     fill(0);
     rect(400, 400, 800, 200);
 
@@ -390,7 +390,6 @@ function historia() {
 
     fill(0);
     text(textos[9].boton2, btn_sig.x, btn_sig.y);
-    
   } else if (nodo == 11) { //final hospital
     image(img7, 0, 0, width, height);
     fill(0);
@@ -413,7 +412,6 @@ function historia() {
     textSize(20);
     fill(0);
     text(textos[10].boton1, btn_volver.x, btn_volver.y);
-    
   } else if (nodo == 12) {
     image(img8, 0, 0, width, height);
     fill(0);
@@ -437,8 +435,7 @@ function historia() {
 
     fill(0);
     text(textos[11].boton2, btn_sig.x, btn_sig.y);
-    
-  } else if (nodo == 13) {
+  } else if (nodo == 13) { //decisiom maquillaje
     image(img4, 0, 0, width, height);
     fill(0);
     rect(400, 400, 800, 200);
@@ -471,5 +468,217 @@ function historia() {
 
     fill(0);
     text(textos[12].boton2, btn_b.x, btn_b.y);
+  } else if (nodo == 14) { //maquillaje tardado
+    image(img9, 0, 0, width, height);
+    fill(0);
+    rect(400, 400, 800, 200);
+
+    if (btnarea(btn_sig.x, btn_sig.y, btn_sig.ancho, btn_sig.alto)) {
+      fill(170, 80, 232); // Morado al pasar el mouse
+    } else {
+      fill(225); // Gris por defecto
+    }
+    rect(btn_sig.x, btn_sig.y, btn_sig.ancho, btn_sig.alto);
+
+    push(); // Guarda
+    textAlign(CENTER, BOTTOM);
+    fill(250);
+
+    text(textos[13].titulo, width/2, 180, 390, 430);
+    pop();
+
+    textSize(20);
+
+    fill(0);
+    text(textos[13].boton2, btn_sig.x, btn_sig.y);
+  } else if (nodo == 15) {
+    image(img5, 0, 0, width, height);
+    fill(0);
+    rect(400, 400, 800, 200);
+
+    if (btnarea(btn_ant.x, btn_ant.y, btn_ant.ancho, btn_ant.alto)) {
+      fill(170, 80, 232); // Morado al pasar el mouse
+    } else {
+      fill(225); // Gris por defecto
+    }
+    rect(btn_ant.x, btn_ant.y, btn_ant.ancho, btn_ant.alto);
+
+    if (btnarea(btn_sig.x, btn_sig.y, btn_sig.ancho, btn_sig.alto)) {
+      fill(170, 80, 232); // Morado al pasar el mouse
+    } else {
+      fill(225); // Gris por defecto
+    }
+    rect(btn_sig.x, btn_sig.y, btn_sig.ancho, btn_sig.alto);
+
+    push(); // Guarda
+    textAlign(CENTER, BOTTOM);
+    fill(250);
+
+    text(textos[14].titulo, width/2, 220, 390, 430);
+    pop();
+
+    textSize(20);
+
+    fill(0);
+    text(textos[14].boton1, btn_ant.x, btn_ant.y);
+
+    fill(0);
+    text(textos[14].boton2, btn_sig.x, btn_sig.y);
+  } else if (nodo == 16) { //maquillaje rapido
+    image(img3, 0, 0, width, height);
+    fill(0);
+    rect(400, 400, 800, 200);
+
+    if (btnarea(btn_sig.x, btn_sig.y, btn_sig.ancho, btn_sig.alto)) {
+      fill(170, 80, 232); // Morado al pasar el mouse
+    } else {
+      fill(225); // Gris por defecto
+    }
+    rect(btn_sig.x, btn_sig.y, btn_sig.ancho, btn_sig.alto);
+
+    push(); // Guarda
+    textAlign(CENTER, BOTTOM);
+    fill(250);
+
+    text(textos[15].titulo, width/2, 195, 390, 430);
+    pop();
+
+    textSize(20);
+
+    fill(0);
+    text(textos[15].boton2, btn_sig.x, btn_sig.y);
+  } else if (nodo == 17) { //maquillaje rapido
+    image(img11, 0, 0, width, height);
+    fill(0);
+    rect(400, 400, 800, 200);
+
+    if (btnarea(btn_ant.x, btn_ant.y, btn_ant.ancho, btn_ant.alto)) {
+      fill(170, 80, 232); // Morado al pasar el mouse
+    } else {
+      fill(225); // Gris por defecto
+    }
+    rect(btn_ant.x, btn_ant.y, btn_ant.ancho, btn_ant.alto);
+
+    if (btnarea(btn_sig.x, btn_sig.y, btn_sig.ancho, btn_sig.alto)) {
+      fill(170, 80, 232); // Morado al pasar el mouse
+    } else {
+      fill(225); // Gris por defecto
+    }
+    rect(btn_sig.x, btn_sig.y, btn_sig.ancho, btn_sig.alto);
+
+    push(); // Guarda
+    textAlign(CENTER, BOTTOM);
+    fill(250);
+
+    text(textos[16].titulo, width/2, 190, 390, 430);
+    pop();
+
+    textSize(20);
+
+    fill(0);
+    text(textos[16].boton1, btn_ant.x, btn_ant.y);
+
+    fill(0);
+    text(textos[16].boton2, btn_sig.x, btn_sig.y);
+  } else if (nodo == 18) { //maquillaje rapido
+    image(img12, 0, 0, width, height);
+    fill(0);
+    rect(400, 400, 800, 200);
+
+    if (btnarea(btn_ant.x, btn_ant.y, btn_ant.ancho, btn_ant.alto)) {
+      fill(170, 80, 232); // Morado al pasar el mouse
+    } else {
+      fill(225); // Gris por defecto
+    }
+    rect(btn_ant.x, btn_ant.y, btn_ant.ancho, btn_ant.alto);
+
+    if (btnarea(btn_sig.x, btn_sig.y, btn_sig.ancho, btn_sig.alto)) {
+      fill(170, 80, 232); // Morado al pasar el mouse
+    } else {
+      fill(225); // Gris por defecto
+    }
+    rect(btn_sig.x, btn_sig.y, btn_sig.ancho, btn_sig.alto);
+
+    push(); // Guarda
+    textAlign(CENTER, BOTTOM);
+    fill(250);
+
+    text(textos[17].titulo, width/2, 200, 390, 430);
+    pop();
+
+    textSize(20);
+
+    fill(0);
+    text(textos[17].boton1, btn_ant.x, btn_ant.y);
+
+    fill(0);
+    text(textos[17].boton2, btn_sig.x, btn_sig.y);
+  } else if (nodo == 19) {
+    image(img13, 0, 0, width, height);
+    fill(0);
+    rect(400, 400, 800, 200);
+
+    if (btnarea(btn_ant.x, btn_ant.y, btn_ant.ancho, btn_ant.alto)) {
+      fill(170, 80, 232); // Morado al pasar el mouse
+    } else {
+      fill(225); // Gris por defecto
+    }
+    rect(btn_ant.x, btn_ant.y, btn_ant.ancho, btn_ant.alto);
+
+    if (btnarea(btn_sig.x, btn_sig.y, btn_sig.ancho, btn_sig.alto)) {
+      fill(170, 80, 232); // Morado al pasar el mouse
+    } else {
+      fill(225); // Gris por defecto
+    }
+    rect(btn_sig.x, btn_sig.y, btn_sig.ancho, btn_sig.alto);
+
+    push(); // Guarda
+    textAlign(CENTER, BOTTOM);
+    fill(250);
+
+    text(textos[18].titulo, width/2, 180, 390, 430);
+    pop();
+
+    textSize(20);
+
+    fill(0);
+    text(textos[18].boton1, btn_ant.x, btn_ant.y);
+
+    fill(0);
+    text(textos[18].boton2, btn_sig.x, btn_sig.y);
+  } else if (nodo == 20) { //desicion boliche
+    image(img13, 0, 0, width, height);
+    fill(0);
+    rect(400, 400, 800, 200);
+
+    if (btnarea(btn_a.x, btn_b.y, btn_b.ancho, btn_b.alto)) {
+      fill(170, 80, 232); // Morado al pasar el mouse
+    } else {
+      fill(225); // Gris por defecto
+    }
+    rect(btn_a.x, btn_a.y, btn_a.ancho, btn_a.alto);
+
+    if (btnarea(btn_b.x, btn_b.y, btn_b.ancho, btn_b.alto)) {
+      fill(170, 80, 232); // Morado al pasar el mouse
+    } else {
+      fill(225); // Gris por defecto
+    }
+    rect(btn_b.x, btn_b.y, btn_b.ancho, btn_b.alto);
+
+    push(); // Guarda
+    textAlign(CENTER, BOTTOM);
+    fill(250);
+
+    text(textos[19].titulo, width/2, 180, 390, 430);
+    pop();
+
+    textSize(20);
+
+    fill(0);
+    text(textos[19].boton1, btn_ant.x, btn_ant.y);
+
+    fill(0);
+    text(textos[19].boton2, btn_sig.x, btn_sig.y);
+  } else if (nodo == 21) {
   }
 }

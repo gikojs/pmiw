@@ -18,13 +18,13 @@
     },
 
     "3": {
-        "titulo": "¿Como debería arreglarse?",
-        "boton1": "Arreglarse completamente",
-        "boton2": "Arreglarse poco"
+        "titulo": "¿Que deberia hacer primero?",
+        "boton1": "Maquillarse",
+        "boton2": "Terminar el remeron"
     },
     
     "4": {
-        "titulo": "decide arreglarse poco para ahorrar tiempo y poder ir a la previa",
+        "titulo": "Termina el remeron y como no tiene mucho tiempo, se hace un maquillaje sencillo",
         "boton1": "atras",
         "boton2": "siguiente"
     },
@@ -36,7 +36,7 @@
     },
 
     "6": {
-        "titulo": "Al terminar de arreglarse un poco, sale rumbo a la previa mientras termina de arreglar el remeron",
+        "titulo": "Sube al micro y comienza a maquillarse rapidamente",
         "boton1": "atras",
         "boton2": "siguiente"
     },
@@ -75,5 +75,40 @@
         "titulo": "Como tiene poco tiempo necesita darle prioridad a algo para poder llegar bien al boliche, porque a la previa ya no llega asi que va a encontrar a sus amigos en la plaza",
         "boton1": "Enfocarse en el maquillaje",
         "boton2": "Maquillarse rapido"
+    },
+
+    "13": {
+        "titulo": "Decide enfocarse en que su maquillaje quede bien el rememron lo hará despues.",
+        "boton2": "siguiente"
+    },
+
+    "14": {
+        "titulo": "Como se tardo mucho en el maquillaje dejo a ultimo momento hacer el remeron, cuando estaba yendo a encontrase con sus amigos vio como algunas piedritas se despegaban",
+        "boton1": "atras",
+        "boton2": "siguiente"
+    },
+
+    "15": {
+        "titulo": "Decide no enfocarse mucho en el maquillaje para poder terminar el remeron",
+        "boton1": "atras",
+        "boton2": "siguiente"
+    },
+
+    "16": {
+        "titulo": "Con el maquillaje a medio hacer empieza a terminar el remeron",
+        "boton1": "atras",
+        "boton2": "siguiente"
+    },
+
+    "17": {
+        "titulo": "Termina el remeron y sale a encontrarse con sus amigos, como no habia podido mquillarse bien termina de hacerlo en el micro",
+        "boton1": "atras",
+        "boton2": "siguiente"
+    },
+
+    "18": {
+        "titulo": "Llega y se encuentra con los amigos que la esperaban para entrar",
+        "boton1": "atras",
+        "boton2": "siguiente"
     }
 }

@@ -4,6 +4,11 @@ let contador_c = 0;
 
 let nodo = 0;
 
+//modos para volver a la rama origianl
+let nodo12 = false;
+let nodo15 = false;
+let nodo18 = false;
+
 //conexiones de nodos
 
 /*let sig_a = [ //error
