@@ -1,0 +1,31 @@
+{
+    "0": {
+        "titulo": "explicacion de como se despierta",
+        "boton1": "atras",
+        "boton2": "siguiente"
+    },
+
+    "1": {
+        "titulo": "continua explicando",
+        "boton1": "atras",
+        "boton2": "siguiente"
+    },
+
+    "2": {
+        "titulo": "¿Como debería arreglarse?",
+        "boton1": "Arreglarse bien",
+        "boton2": "Arreglarse poco"
+    },
+
+    "3": {
+        "titulo": "decide arreglarse bien",
+        "boton1": "atras",
+        "boton2": "siguiente"
+    },
+    
+    "4": {
+        "titulo": "decide arreglarse poco",
+        "boton1": "atras",
+        "boton2": "siguiente"
+    }
+}
