@@ -110,5 +110,58 @@
         "titulo": "Llega y se encuentra con los amigos que la esperaban para entrar",
         "boton1": "atras",
         "boton2": "siguiente"
+    },
+
+    "19": {
+        "titulo": "Deben elegir a que parte del boliche deben ir",
+        "boton1": "Zona tipo bar",
+        "boton2": "Zona para bailar"
+    },
+
+    "20": {
+        "titulo": "Van a una zona tipo bar con poca gente",
+        "boton1": "atras",
+        "boton2": "siguiente"
+    },
+
+    "21": {
+        "titulo": "Al paso de las horas se empiezan a aburrir y piensan en irse a otro lado, pero ¿a donde?",
+        "boton1": "Ir a bailar",
+        "boton2": "Irse del boliche"
+    },
+
+    "22": {
+        "titulo": "Antes de que termine la noche deciden irse a comer algo para charlar y reirse un rato",
+        "boton1": "Voler a empezar",
+        "finales": "final 2"
+    },
+
+    "23": {
+        "titulo": "Van a una zona para bailar y divertirse un rato",
+        "boton2": "siguiente"
+    },
+
+    "24": {
+        "titulo": "Como el lugar esta tan lleno de gente por accidente un amigo termina chocando con un chico que pasaba, la situación empieza a empeorar cuando el chico busca iniciar una pelea",
+        "boton1": "atras",
+        "boton2": "siguiente"
+    },
+
+    "25": {
+        "titulo": "Antes de que la situación crezcan deben actuar",
+        "boton1": "Pedir ayuda y evitar la pelea",
+        "boton2": "Ayudar a tu amigo a pelear"
+    },
+
+    "26": {
+        "titulo": "Al pedir ayuda vienen mas gente se da cuenta y se llevan al chico para que no siga, aunque siempre va a haber gente buscando provocar lo mejor siempre será ignorarlos y si siguen tratar de pedir ayuda para evitar heridos o hasta incluso para evitar muertes. ",
+        "boton1": "Voler a empezar",
+        "finales": "final 3"
+    },
+
+    "27": {
+        "titulo": "Al querer ayudar a tu amigo a pelear mas gente se empieza a unir y se arma una batalla campal, para detener la situación llega la policia y los encierra por disturbios. Las pequeñas peleas pueden desencadenar batallas campales donde mucha gente puede resultar herida, por eso si ves una pelea siempre lo mejor será deternela y no fomentarla",
+        "boton1": "Voler a empezar",
+        "finales": "final 4"
     }
 }

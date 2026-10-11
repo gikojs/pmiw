@@ -16,9 +16,12 @@ function p_inicio() {
   textAlign(CENTER, CENTER);
   image(menu, 0, 0, width, height);
 
+  push(); // Guarda
+  textAlign(LEFT, BOTTOM);
   fill(225);
   textSize(50);
-  text("titulo", 100, 120);
+  text("Sobreviviendo al UPD", 150, 100);
+  pop();
 
   textSize(25);
   //btn Inicio
@@ -651,7 +654,7 @@ function historia() {
     fill(0);
     rect(400, 400, 800, 200);
 
-    if (btnarea(btn_a.x, btn_b.y, btn_b.ancho, btn_b.alto)) {
+    if (btnarea(btn_a.x, btn_a.y, btn_a.ancho, btn_a.alto)) {
       fill(170, 80, 232); // Morado al pasar el mouse
     } else {
       fill(225); // Gris por defecto
@@ -675,10 +678,224 @@ function historia() {
     textSize(20);
 
     fill(0);
-    text(textos[19].boton1, btn_ant.x, btn_ant.y);
+    text(textos[19].boton1, btn_a.x, btn_a.y);
 
     fill(0);
-    text(textos[19].boton2, btn_sig.x, btn_sig.y);
+    text(textos[19].boton2, btn_b.x, btn_b.y);
   } else if (nodo == 21) {
+    image(img14, 0, 0, width, height);
+    fill(0);
+    rect(400, 400, 800, 200);
+
+    if (btnarea(btn_sig.x, btn_sig.y, btn_sig.ancho, btn_sig.alto)) {
+      fill(170, 80, 232); // Morado al pasar el mouse
+    } else {
+      fill(225); // Gris por defecto
+    }
+    rect(btn_sig.x, btn_sig.y, btn_sig.ancho, btn_sig.alto);
+
+    push(); // Guarda
+    textAlign(CENTER, BOTTOM);
+    fill(250);
+
+    text(textos[20].titulo, width/2, 180, 390, 430);
+    pop();
+
+    textSize(20);
+
+    fill(0);
+    text(textos[20].boton2, btn_sig.x, btn_sig.y);
+  } else if (nodo == 22) {
+    image(img14, 0, 0, width, height);
+    fill(0);
+    rect(400, 400, 800, 200);
+
+    if (btnarea(btn_a.x, btn_a.y, btn_a.ancho, btn_a.alto)) {
+      fill(170, 80, 232); // Morado al pasar el mouse
+    } else {
+      fill(225); // Gris por defecto
+    }
+    rect(btn_a.x, btn_a.y, btn_a.ancho, btn_a.alto);
+
+    if (btnarea(btn_b.x, btn_b.y, btn_b.ancho, btn_b.alto)) {
+      fill(170, 80, 232); // Morado al pasar el mouse
+    } else {
+      fill(225); // Gris por defecto
+    }
+    rect(btn_b.x, btn_b.y, btn_b.ancho, btn_b.alto);
+
+    push(); // Guarda
+    textAlign(CENTER, BOTTOM);
+    fill(250);
+
+    text(textos[21].titulo, width/2, 180, 390, 430);
+    pop();
+
+    textSize(20);
+
+    fill(0);
+    text(textos[21].boton1, btn_a.x, btn_a.y);
+
+    fill(0);
+    text(textos[21].boton2, btn_b.x, btn_b.y);
+  } else if (nodo == 23) { //final 2
+    image(img15, 0, 0, width, height);
+    fill(0);
+    rect(400, 400, 800, 200);
+
+    if (btnarea(btn_volver.x, btn_volver.y, btn_volver.ancho, btn_volver.alto)) {
+      fill(170, 80, 232); // Morado al pasar el mouse
+    } else {
+      fill(225); // Gris por defecto
+    }
+    rect(btn_volver.x, btn_volver.y, btn_volver.ancho, btn_volver.alto);
+
+    push(); // Guarda
+    textAlign(CENTER, BOTTOM);
+    fill(250);
+
+    text(textos[22].titulo, width/2, 180, 390, 430);
+    pop();
+
+    textSize(20);
+
+    fill(0);
+    text(textos[22].boton1, btn_volver.x, btn_volver.y);
+  } else if (nodo == 24) {
+    image(img16, 0, 0, width, height);
+    fill(0);
+    rect(400, 400, 800, 200);
+
+
+    if (btnarea(btn_sig.x, btn_sig.y, btn_sig.ancho, btn_sig.alto)) {
+      fill(170, 80, 232); // Morado al pasar el mouse
+    } else {
+      fill(225); // Gris por defecto
+    }
+    rect(btn_sig.x, btn_sig.y, btn_sig.ancho, btn_sig.alto);
+
+    push(); // Guarda
+    textAlign(CENTER, BOTTOM);
+    fill(250);
+
+    text(textos[23].titulo, width/2, 180, 390, 430);
+    pop();
+
+    textSize(20);
+
+    fill(0);
+    text(textos[23].boton2, btn_sig.x, btn_sig.y);
+  } else if (nodo == 25) {
+    image(img17, 0, 0, width, height);
+    fill(0);
+    rect(400, 400, 800, 200);
+
+    if (btnarea(btn_ant.x, btn_ant.y, btn_ant.ancho, btn_ant.alto)) {
+      fill(170, 80, 232); // Morado al pasar el mouse
+    } else {
+      fill(225); // Gris por defecto
+    }
+    rect(btn_ant.x, btn_ant.y, btn_ant.ancho, btn_ant.alto);
+
+    if (btnarea(btn_sig.x, btn_sig.y, btn_sig.ancho, btn_sig.alto)) {
+      fill(170, 80, 232); // Morado al pasar el mouse
+    } else {
+      fill(225); // Gris por defecto
+    }
+    rect(btn_sig.x, btn_sig.y, btn_sig.ancho, btn_sig.alto);
+
+    push(); // Guarda
+    textAlign(CENTER, BOTTOM);
+    fill(250);
+
+    text(textos[24].titulo, width/2, 210, 390, 430);
+    pop();
+
+    textSize(20);
+
+    fill(0);
+    text(textos[24].boton1, btn_ant.x, btn_ant.y);
+
+    fill(0);
+    text(textos[24].boton2, btn_sig.x, btn_sig.y);
+  } else if (nodo == 26) {
+    image(img17, 0, 0, width, height);
+    fill(0);
+    rect(400, 400, 800, 200);
+
+    if (btnarea(btn_a.x, btn_a.y, btn_a.ancho+20, btn_a.alto)) {
+      fill(170, 80, 232); // Morado al pasar el mouse
+    } else {
+      fill(225); // Gris por defecto
+    }
+    rect(btn_a.x, btn_a.y, btn_a.ancho+20, btn_a.alto);
+
+    if (btnarea(btn_b.x, btn_b.y, btn_b.ancho, btn_b.alto)) {
+      fill(170, 80, 232); // Morado al pasar el mouse
+    } else {
+      fill(225); // Gris por defecto
+    }
+    rect(btn_b.x, btn_b.y, btn_b.ancho, btn_b.alto);
+
+    push(); // Guarda
+    textAlign(CENTER, BOTTOM);
+    fill(250);
+
+    text(textos[25].titulo, width/2, 190, 390, 430);
+    pop();
+
+    textSize(20);
+
+    fill(0);
+    text(textos[25].boton1, btn_a.x, btn_a.y);
+
+    fill(0);
+    text(textos[25].boton2, btn_b.x, btn_b.y);
+  } else if (nodo == 27) { //final 3
+    image(img18, 0, 0, width, height);
+    fill(0);
+    rect(400, 400, 800, 200);
+
+    if (btnarea(btn_volver.x, btn_volver.y, btn_volver.ancho, btn_volver.alto)) {
+      fill(170, 80, 232); // Morado al pasar el mouse
+    } else {
+      fill(225); // Gris por defecto
+    }
+    rect(btn_volver.x, btn_volver.y, btn_volver.ancho, btn_volver.alto);
+
+    push(); // Guarda
+    textAlign(CENTER, BOTTOM);
+    fill(250);
+
+    text(textos[26].titulo, 350, 220, 500, 430);
+    pop();
+
+    textSize(20);
+
+    fill(0);
+    text(textos[26].boton1, btn_volver.x, btn_volver.y);
+  } else if (nodo == 28) { //final 3
+    image(img19, 0, 0, width, height);
+    fill(0);
+    rect(400, 400, 800, 200);
+
+    if (btnarea(btn_volver.x, btn_volver.y, btn_volver.ancho, btn_volver.alto)) {
+      fill(170, 80, 232); // Morado al pasar el mouse
+    } else {
+      fill(225); // Gris por defecto
+    }
+    rect(btn_volver.x, btn_volver.y, btn_volver.ancho, btn_volver.alto);
+
+    push(); // Guarda
+    textAlign(CENTER, BOTTOM);
+    fill(250);
+    textSize(17);
+    text(textos[27].titulo, 300, 220, 600, 430);
+    pop();
+
+    textSize(20);
+
+    fill(0);
+    text(textos[27].boton1, btn_volver.x, btn_volver.y);
   }
 }
