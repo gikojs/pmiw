@@ -2,6 +2,7 @@ function setup() {
   createCanvas(800, 450);
 
   loadJSON('textos.json', t_completos);
+  musica = loadSound('data/musica.mp3', s_completos);
 
   menu = loadImage('data/menu.jpg');
   img0 = loadImage('data/1.jpg');
@@ -24,8 +25,6 @@ function setup() {
   img17 = loadImage('data/21.jpg');
   img18 = loadImage('data/22.jpg');
   img19 = loadImage('data/23.jpg');
-
-  musica = loadSound('data/musica.mp3', s_completos);
 
   estado = 0;
   btncolor = color(222);
@@ -51,7 +50,11 @@ function mousePressed() {
     if (btnarea(btn_inicio.x, btn_inicio.y, btn_inicio.ancho, btn_inicio.alto)) {
       nodo = 1;
       estado=2;
-      musica.loop();
+      userStartAudio(); // Función nativa de p5 para desbloquear el audio del navegador
+
+      if (musica) {
+        musica.loop();
+      }
     } else if (btnarea(btn_creditos.x, btn_creditos.y, btn_creditos.ancho, btn_creditos.alto)) {
       estado = 1;
     }

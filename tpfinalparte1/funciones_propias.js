@@ -58,15 +58,23 @@ function btnarea(x_, y_, ancho_, alto_) {
 }
 
 function p_creditos() {
-  background(225);
+  image (img0,0, 0, width, height)
 
-  fill(0);
-  textSize(50);
-  text("titulo", width/2, 120);
-
-  rectMode(CENTER, CENTER);
   textAlign(CENTER, CENTER);
+  textSize(25);
+  fill(225);
 
+  text("Sobreviviendo al UPD", width/2, creditosY);
+  text("Trabajo Practico Final", width/2, creditosY+50);
+  text("Etapa 1", width/2, creditosY+100);
+  text("Hecho por:", width/2, creditosY+150);
+  text("Anahí Leonardo", width/2, creditosY+200);
+  text("Valentina Chavez", width/2, creditosY+250);
+  text("Comision 3", width/2, creditosY+300);
+  text("Año 2026", width/2, creditosY+350);
+
+  creditosY = creditosY - 1;
+  
   textSize(25);
 
   //btn
@@ -79,9 +87,6 @@ function p_creditos() {
 
   fill(0);
   text("VOLVER", btn_volver.x, btn_volver.y);
-  contador_c = 450;
-
-  text("Titulo de la aventura", width/2, contador_c);
 }
 
 function historia() {

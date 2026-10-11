@@ -1,6 +1,6 @@
 let estado = 0;
 
-let contador_c = 0;
+let creditosY = 500;
 let musica = 0;
 
 let nodo = 0;
