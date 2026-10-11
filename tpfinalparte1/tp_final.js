@@ -1,3 +1,6 @@
+//Alumnas: Anahi Leonardo y Valentina Chavez
+//video: https://www.youtube.com/watch?v=2DEx-tBH0JY
+
 function setup() {
   createCanvas(800, 450);
 
