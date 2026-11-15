@@ -1,0 +1,167 @@
+{
+    "0": {
+        "titulo": "Martina se esta preparando para su UPD, planea que todo dalga perfecto pero dependiendo que decision tome puede afectar el final del festejo, ayudala a tener una noche tranquila donde se divierta junto a sus amigos.",
+        "boton1": "atras",
+        "boton2": "siguiente"
+    },
+
+    "1": {
+        "titulo": "Martina prefirio dormir una siesta para no tener sueño a la noche y al despertar preparia todo para ir, pero durmio de mas y se desperto a las 19 de la noche",
+        "boton1": "atras",
+        "boton2": "siguiente"
+    },
+
+    "2": {
+        "titulo": "Preocupada Martina va a la sala de la casa a ver que es lo que falta por hacer, en la sala se encuentra todo hecho un lio y con un monton de cosas por hacer",
+        "boton1": "atras",
+        "boton2": "siguiente"
+    },
+
+    "3": {
+        "titulo": "¿Que deberia hacer primero?",
+        "boton1": "Maquillarse",
+        "boton2": "Terminar el remeron"
+    },
+    
+    "4": {
+        "titulo": "Termina el remeron y como no tiene mucho tiempo, se hace un maquillaje sencillo",
+        "boton1": "atras",
+        "boton2": "siguiente"
+    },
+
+    "5": {
+        "titulo": "decide arreglarse bien y no ir a la previa, despues se encontrará con sus amigas para ir al boliche",
+        "boton1": "atras",
+        "boton2": "siguiente"
+    },
+
+    "6": {
+        "titulo": "Sube al micro y comienza a maquillarse rapidamente",
+        "boton1": "atras",
+        "boton2": "siguiente"
+    },
+
+    "7": {
+        "titulo": "Al llegar se encuentra con sus amigas y esperan a que se acerque la hora de entrada para ir al boliche, en medio de la espera una amiga propone empezar a beber ahí.¿Deberían empezar o esperar a llegar al boliche?",
+        "boton1": "Comer algo y esperar a llegar al boliche",
+        "boton2": "Empieza a tomar demasiado en la previa"
+    },
+
+    "8": {
+        "titulo": "Deciden empezar a tomar antes de ir",
+        "boton1": "atras",
+        "boton2": "siguiente"
+    },
+
+    "9": {
+        "titulo": "A medida que van bebiendo mas se olvidan de comer algo, mientras mas pasa beben mas",
+        "boton1": "atras",
+        "boton2": "siguiente"
+    },
+
+    "10": {
+        "titulo": "Le comienza a caer mal el alcohol, como se esta empezando a poner mal la llevan al medico. Tomar mucho alcohol sin control puede afectar a la salud, por eso si van a tomar haganlo con cuidado",
+        "boton1": "Voler a empezar",
+        "finales": "final 1"
+    },
+
+    "11": {
+        "titulo": "En vez de empezar a tomar tan temprano deciden pedir comida mientras esperan que avance el tiempo",
+        "boton1": "atras",
+        "boton2": "siguiente"
+    },
+
+    "12": {
+        "titulo": "Como tiene poco tiempo necesita darle prioridad a algo para poder llegar bien al boliche, porque a la previa ya no llega asi que va a encontrar a sus amigos en la plaza",
+        "boton1": "Enfocarse en el maquillaje",
+        "boton2": "Maquillarse rapido"
+    },
+
+    "13": {
+        "titulo": "Decide enfocarse en que su maquillaje quede bien el rememron lo hará despues.",
+        "boton2": "siguiente"
+    },
+
+    "14": {
+        "titulo": "Como se tardo mucho en el maquillaje dejo a ultimo momento hacer el remeron, cuando estaba yendo a encontrase con sus amigos vio como algunas piedritas se despegaban",
+        "boton1": "atras",
+        "boton2": "siguiente"
+    },
+
+    "15": {
+        "titulo": "Decide no enfocarse mucho en el maquillaje para poder terminar el remeron",
+        "boton1": "atras",
+        "boton2": "siguiente"
+    },
+
+    "16": {
+        "titulo": "Con el maquillaje a medio hacer empieza a terminar el remeron",
+        "boton1": "atras",
+        "boton2": "siguiente"
+    },
+
+    "17": {
+        "titulo": "Termina el remeron y sale a encontrarse con sus amigos, como no habia podido mquillarse bien termina de hacerlo en el micro",
+        "boton1": "atras",
+        "boton2": "siguiente"
+    },
+
+    "18": {
+        "titulo": "Llega y se encuentra con los amigos que la esperaban para entrar",
+        "boton1": "atras",
+        "boton2": "siguiente"
+    },
+
+    "19": {
+        "titulo": "Deben elegir a que parte del boliche deben ir",
+        "boton1": "Zona tipo bar",
+        "boton2": "Zona para bailar"
+    },
+
+    "20": {
+        "titulo": "Van a una zona tipo bar con poca gente",
+        "boton1": "atras",
+        "boton2": "siguiente"
+    },
+
+    "21": {
+        "titulo": "Al paso de las horas se empiezan a aburrir y piensan en irse a otro lado, pero ¿a donde?",
+        "boton1": "Ir a bailar",
+        "boton2": "Irse del boliche"
+    },
+
+    "22": {
+        "titulo": "Antes de que termine la noche deciden irse a comer algo para charlar y reirse un rato",
+        "boton1": "Voler a empezar",
+        "finales": "final 2"
+    },
+
+    "23": {
+        "titulo": "Van a una zona para bailar y divertirse un rato",
+        "boton2": "siguiente"
+    },
+
+    "24": {
+        "titulo": "Como el lugar esta tan lleno de gente por accidente un amigo termina chocando con un chico que pasaba, la situación empieza a empeorar cuando el chico busca iniciar una pelea",
+        "boton1": "atras",
+        "boton2": "siguiente"
+    },
+
+    "25": {
+        "titulo": "Antes de que la situación crezcan deben actuar",
+        "boton1": "Pedir ayuda y evitar la pelea",
+        "boton2": "Ayudar a tu amigo a pelear"
+    },
+
+    "26": {
+        "titulo": "Al pedir ayuda vienen mas gente se da cuenta y se llevan al chico para que no siga, aunque siempre va a haber gente buscando provocar lo mejor siempre será ignorarlos y si siguen tratar de pedir ayuda para evitar heridos o hasta incluso para evitar muertes. ",
+        "boton1": "Voler a empezar",
+        "finales": "final 3"
+    },
+
+    "27": {
+        "titulo": "Al querer ayudar a tu amigo a pelear mas gente se empieza a unir y se arma una batalla campal, para detener la situación llega la policia y los encierra por disturbios. Las pequeñas peleas pueden desencadenar batallas campales donde mucha gente puede resultar herida, por eso si ves una pelea siempre lo mejor será deternela y no fomentarla",
+        "boton1": "Voler a empezar",
+        "finales": "final 4"
+    }
+}
