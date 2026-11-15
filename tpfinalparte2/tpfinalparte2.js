@@ -1,12 +1,18 @@
+let creditosY = 0;
+
+let sonido = 0;
+let sganar = 0;
+let sperder = 0;
+let s_cargados = false;
+
+let prota;
+let protaimg;
+let fondo;
+
 let izq = false;
 let der = false;
 
 let estado = 0;
-
-let ganar = false;
-let perder = false;
-let reglas = false;
-let creditos = false;
 
 let puntos = 0;
 
@@ -32,82 +38,173 @@ class btn {
   
   uso(px, py) {
     return ( px > this.x - this.ancho/2 && px < this.x + this.ancho/2 && py > this.y - this.alto/2 && py < this.y + this.alto/2);
+    
   }
 }
 
-let btnvolver = new btn(400, 300, 180, 55, "voler a jugar");
-let btnsalir = new btn(400, 400, 180, 55, "salir");
+let btnvolver = new btn(400, 250, 180, 55, "voler a jugar");
+let btnsalir = new btn(400, 350, 180, 55, "salir");
 
-let btninicio = new btn(400, 250, 180, 55, "jugar");
-let btnreglas = new btn(400, 320, 180, 55, "reglas");
-let btncreditos = new btn(400, 390, 180, 55, "creditos");
+let btninicio = new btn(400, 200, 180, 55, "jugar");
+let btnreglas = new btn(400, 270, 180, 55, "reglas");
+let btncreditos = new btn(400, 340, 180, 55, "creditos");
+let btnmenu = new btn(400, 340, 180, 55, "volver");
 
-let prota = {
-  x:400,
-  y:375,
-  tam:50,
-  vel:5,
-
-  mover: function() {
-
-  if (izq) {
-    this.x -= this.vel;
+class protagonista {
+  constructor(x, y, tam, vel, imagen) {
+    this.x = x;
+    this.y = y;
+    this.tam = tam;
+    this.vel = vel;
+    this.img = imagen;
   }
 
-  if (der) {
-    this.x += this.vel;
-  }
+  mover() {
+    if (izq) {
+      this.x -= this.vel;
+    }
 
-  //limites
-  if (this.x < 0) {
-    this.x = 0;
-  }
+    if (der) {
+      this.x += this.vel;
+    }
 
-  if (this.x > width - this.tam) {
-    this.x = width - this.tam;
-  }
-},
+    // límites
+    if (this.x < 0) {
+      this.x = 0;
+    }
 
-  dibujar: function() {
-  square(this.x, this.y, this.tam);
-}
-
-}
-
-class objeto {
-  constructor(x, y, tam, vel, color) {
-  this.x = x;
-  this.y = y;
-  this.tam = tam;
-  this.vel = vel;
-  this.color = color;
-  }
-
-  caida() {
-  this.y += this.vel;
-  
-  if (this.y > height) {
-    puntos--; //retar 1 ppunto cuando llega abajo
-    this.y = -30;
-    this.x = random(this.tam/2, width-this.tam/2);
-  }
+    if (this.x > width - this.tam) {
+      this.x = width - this.tam;
+    }
   }
 
   dibujar() {
-    fill(this.color);
-    circle(this.x, this.y, this.tam);
+  image(this.img, this.x, this.y, this.tam, this.tam);
   }
-
 }
 
-let obj = []
+class objeto {
+  constructor(x, y, tam, vel, imagen) {
+    this.x = x;
+    this.y = y;
+    this.tam = tam;
+    this.vel = vel;
+    this.img = imagen;
+  }
+
+  caida() {
+    this.y += this.vel;
+
+    if (this.y > height) {
+      puntos--;
+
+      if (sperder.isLoaded()) {
+        sperder.play();
+      }
+
+      this.y = -30;
+      this.x = random(this.tam/2, width-this.tam/2);
+    }
+  }
+
+  dibujar() {
+    image(this.img, this.x - this.tam/2, this.y - this.tam/2, this.tam, this.tam);
+  }
+}
+
+let obj = [];
+let img = [];
+let fondos = [];
+
+class pantalla {
+
+  dibujar(estado) {
+    background(225);
+    textAlign(CENTER, CENTER);
+    fill(0);
+
+    if (estado == 2) { // ganar
+      textSize(50);
+      text("GANASTE", 400, 200);
+    
+      textSize(30);
+      text("Pudiste terminar de arreglarte!", 400, 230);
+    
+      btnvolver.dibujar();
+      btnsalir.dibujar();
+
+    } else if (estado == 3) {  // perder
+      textSize(50);
+      fill(0);
+      text("PERDISTE", 400, 200);
+      textSize(30);
+      text("no pudiste terminar de arreglarte!", 400, 230);
+    
+      btnvolver.dibujar();
+     btnsalir.dibujar();
+
+    } else if (estado == 4) { // reglas
+      fill(0);
+      textSize(40);
+      text("REGLAS", 400, 65);
+
+      textSize(22);
+      text("Tu objetivo es conseguir 10 puntos.", 400, 140);
+      text("Usá las flechas izquierda y derecha", 400, 190);
+      text("para mover al personaje.", 400, 225);
+      text("Atrapa los objetos para sumar puntos.", 400, 275);
+      text("Si dejás caer demasiados, perdés.", 400, 320);
+    
+      btnmenu.dibujar();
+
+    } else if (estado == 5) {// créditos
+      fill(0);
+      textSize(20);
+    
+      text("Sobreviviendo al UPD", width/2, creditosY);
+      text("Trabajo Practico Final", width/2, creditosY-50);
+      text("Etapa 2", width/2, creditosY-100);
+      text("Hecho por:", width/2, creditosY-150);
+      text("Anahí Leonardo", width/2, creditosY-200);
+      text("Valentina Chavez", width/2, creditosY-250);
+      text("Comision 3", width/2, creditosY-300);
+  text("Año 2026", width/2, creditosY-350);
+
+  creditosY = creditosY + 1;
+    
+    btnmenu.dibujar();
+    }
+  }
+}
+
+let pjuego = new pantalla();
+
+function s_completos(datos) {
+  s_cargados = true; //cuando se carguen los datos pasa a true
+  console.log("sonidos cargados");
+}
 
 function setup() {
-  createCanvas(800, 450);
+  createCanvas(800, 400);
   
-  obj.push(new objeto(100, -30, 30, 2, "red"));
-  obj.push(new objeto(300, -100, 40, 4, "blue"));
-  obj.push(new objeto(500, -200, 25, 3, "green"));
+  img[0] = loadImage("data/plancha.png");
+  img[1] = loadImage("data/labial.png");
+  img[2] = loadImage("data/rubor.png");
+  
+  fondos[0] = loadImage("data/menu.jpg");
+  fondos[1] = loadImage("data/fondo.png")
+  
+  protaimg = loadImage("data/prota.png");
+  
+  prota = new protagonista(400, 300, 120, 8, protaimg);
+  
+  sonido = loadSound('data/musica.mp3', s_completos);
+  sganar = loadSound('data/ganar.mp3');
+  sperder = loadSound('data/perder.mp3');
+  
+  obj.push(new objeto(100, -30, 30, 2, img[0]));
+  obj.push(new objeto(300, -100, 40, 4, img[1]));
+  obj.push(new objeto(500, -200, 25, 3, img[2]));
 }
 
 function draw() {
@@ -115,7 +212,9 @@ function draw() {
   
   if (estado == 0) {
     inicio();
+    
   } else if (estado == 1) {
+    image(fondos[1], 0, 0, width, height);
     prota.mover();
     prota.dibujar();
   
@@ -131,19 +230,19 @@ function draw() {
     fill(0);
     text("Puntos: " + puntos, 20, 35);
   
-    if (puntos == -1) {
+    if (puntos <= -1) {
       estado = 3;
+      
+      if(s_cargados && sonido.isPlaying()) {
+        sonido.stop();
+      }
     }
 
-    if (puntos == 10) {
+    if (puntos >= 10) {
       estado = 2;
     }
-  } else if (estado == 2) {
-    ganar = true;
-    pantalla();
-  } else if (estado == 3) {
-    perder = true;
-    pantalla();
+  } else {
+    pjuego.dibujar(estado);
   }
 }
 
@@ -169,11 +268,15 @@ function keyReleased() {
 }
 
 function colision() {
-  
+
   for (let objeto of obj) {
     if ( objeto.x + objeto.tam/2 > prota.x && objeto.x - objeto.tam/2 < prota.x + prota.tam && objeto.y + objeto.tam/2 > prota.y && objeto.y - objeto.tam/2 < prota.y + prota.tam) {
       
       puntos++;
+      
+      if (sganar.isLoaded()) {
+        sganar.play();
+      }
       
       objeto.y = -30 //reestablecer el circulo
       objeto.x = random(objeto.tam/2, width - objeto.tam/2);
@@ -181,105 +284,74 @@ function colision() {
   }
 } 
 
-function pantalla() {
-  background(225);
+function reiniciar() {
+  puntos = 0;
+  prota.x = 400;
+  izq = false;
+  der = false;
+  creditosY = 0;
   
-  if ( ganar == true) {
-    rectMode (CENTER);
-    textAlign(CENTER, CENTER);
-
-    textSize(50);
-    text("GANASTE", 400, 200);
-    
-    textSize(30);
-    text("Pudiste terminar de arreglarte!", 400, 230);
-    
-    btnvolver.dibujar();
-    btnsalir.dibujar();
-        
-  } else if ( perder == true) {
-    rectMode (CENTER);
-    textAlign(CENTER, CENTER);
-
-    textSize(50);
-    
-    fill(0);
-    text("PERDISTE", 400, 200);
-    textSize(30);
-    text("no pudiste terminar de arreglarte!", 400, 230);
-    
-    btnvolver.dibujar();
-    btnsalir.dibujar(); 
-    
-  } else if ( reglas == true ) {
-    rectMode (CENTER);
-    textAlign(CENTER, CENTER);
-
-    textSize(50);
-    text("INSTRUCCIONES", 100, 200);
-    
-  } else if ( creditos == true ) {
-    rectMode (CENTER);
-    textAlign(CENTER, CENTER);
-
-    textSize(50);
-    text("INSTRUCCIONES", 100, 200);
+  for (let objeto of obj) {
+    objeto.y = random (-300, -30);
+    objeto.x = random (objeto.tam/2, width - objeto.tam/2);
   }
+  
+  estado = 1;
 }
 
+
 function mousePressed() {
-  
-  //psntalla de inicio
   if (estado == 0) {
-    if (btninicio.uso(mouseX, mouseY)) {
-      estado = 1;
-    }
-  }
-   //perdiste true
-  if (estado == 3) {
-    if (btnvolver.uso(mouseX, mouseY)) {
-      puntos = 0;
-      perder = false;
-      ganar = false; 
+    if (btninicio.uso(mouseX, mouseY)) {     
+      reiniciar();
       
-      prota.x = 400;
-      
-      for (let objeto of obj) {
-        objeto.y = random(-300, -30);
-        objeto.x = random(objeto.tam/2, width - objeto.tam/2);
+      if (s_cargados && !sonido.isPlaying()) { //ver si ya se esta funcionando el sonido
+        sonido.loop();
       }
       
-      estado = 1;
-    }
-    if (btnsalir.uso(mouseX, mouseY)) {
-      estado = 0;
-    }
-  }
-  
-  //ganar true
-  if (estado == 2) {
-    if (btnvolver.uso(mouseX, mouseY)) {
-      puntos = 0;
-      perder = false;
-      ganar = false; 
-      
-      prota.x = 400;
-      
-      for (let objeto of obj) {
-        objeto.y = random(-300, -30);
-        objeto.x = random(objeto.tam/2, width - objeto.tam/2);
+    } else if (btnreglas.uso(mouseX, mouseY)) {
+      estado = 4;
+      if (s_cargados && sonido.isPlaying()) { //ver si ya se esta funcionando el sonido
+        sonido.stop();
       }
-      
-      estado = 1;
+
+    } else if (btncreditos.uso(mouseX, mouseY)) {
+      estado = 5;
+      if (s_cargados && sonido.isPlaying()) { //ver si ya se esta funcionando el sonido
+        sonido.stop();
+      }
     }
-    if (btnsalir.uso(mouseX, mouseY)) {
+
+  } else if (estado == 2 || estado == 3) {
+
+    if (btnvolver.uso(mouseX, mouseY)) {
+      reiniciar();
+      if (s_cargados && !sonido.isPlaying()) { //ver si ya se esta funcionando el sonido
+        sonido.loop();
+      }
+
+    } else if (btnsalir.uso(mouseX, mouseY)) {
       estado = 0;
+      
+      if (s_cargados && sonido.isPlaying()) { //ver si ya se esta funcionando el sonido
+        sonido.stop();
+      }
+    }
+
+  } else if (estado == 4 || estado == 5) {
+
+    if (btnmenu.uso(mouseX, mouseY)) {
+      estado = 0;
+      
+      if (s_cargados && sonido.isPlaying()) {//ver si ya se esta funcionando el sonido
+        sonido.stop();
+      }
     }
   }
 }
 
 function inicio() {
-  background(225);
+  image(fondos[0], 0, 0, width, height);
   
   textAlign(CENTER, CENTER);  
   textSize(50)
