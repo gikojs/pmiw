@@ -42,8 +42,8 @@ class btn {
   }
 }
 
-let btnvolver = new btn(400, 250, 180, 55, "voler a jugar");
-let btnsalir = new btn(400, 350, 180, 55, "salir");
+let btnvolver = new btn(400, 300, 180, 55, "voler a jugar");
+let btnsalir = new btn(400, 360, 180, 55, "salir");
 
 let btninicio = new btn(400, 200, 180, 55, "jugar");
 let btnreglas = new btn(400, 270, 180, 55, "reglas");
@@ -119,46 +119,57 @@ let fondos = [];
 class pantalla {
 
   dibujar(estado) {
-    background(225);
+    if (estado == 2) {
+    image(fondos[2], 0, 0, width, height);
+    
+    } else if (estado == 3) {
+      image(fondos[3], 0, 0, width, height);
+      
+    } else if (estado == 4 || estado == 5) {
+    image(fondos[1], 0, 0, width, height);
+    }
+    
     textAlign(CENTER, CENTER);
     fill(0);
 
     if (estado == 2) { // ganar
-      textSize(50);
-      text("GANASTE", 400, 200);
     
-      textSize(30);
-      text("Pudiste terminar de arreglarte!", 400, 230);
+      textSize(50);
+      fill(255);
+      text("GANASTE", 400, 40);
+    
+      textSize(20);
+      text("Pudiste terminar de arreglarte!", 400, 250);
     
       btnvolver.dibujar();
       btnsalir.dibujar();
 
     } else if (estado == 3) {  // perder
       textSize(50);
-      fill(0);
-      text("PERDISTE", 400, 200);
+      fill(255);
+      text("PERDISTE", 400, 40);
       textSize(30);
-      text("no pudiste terminar de arreglarte!", 400, 230);
+      text("no pudiste terminar de arreglarte!", 400, 250);
     
       btnvolver.dibujar();
      btnsalir.dibujar();
 
     } else if (estado == 4) { // reglas
-      fill(0);
+      fill(255);
       textSize(40);
       text("REGLAS", 400, 65);
 
       textSize(22);
-      text("Tu objetivo es conseguir 10 puntos.", 400, 140);
-      text("Usá las flechas izquierda y derecha", 400, 190);
-      text("para mover al personaje.", 400, 225);
-      text("Atrapa los objetos para sumar puntos.", 400, 275);
-      text("Si dejás caer demasiados, perdés.", 400, 320);
+      text("Tu objetivo es conseguir 10 puntos.", 400, 130);
+      text("Usá las flechas izquierda y derecha", 400, 180);
+      text("para mover a la protagonissta.", 400, 215);
+      text("Atrapa los objetos para sumar puntos.", 400, 260);
+      text("Si dejás caer demasiados, perdés.", 400, 295);
     
       btnmenu.dibujar();
 
     } else if (estado == 5) {// créditos
-      fill(0);
+      fill(255);
       textSize(20);
     
       text("Sobreviviendo al UPD", width/2, creditosY);
@@ -193,6 +204,8 @@ function setup() {
   
   fondos[0] = loadImage("data/menu.jpg");
   fondos[1] = loadImage("data/fondo.png")
+  fondos[2] = loadImage("data/ganar.jpg")
+  fondos[3] = loadImage("data/perder.jpg")
   
   protaimg = loadImage("data/prota.png");
   
@@ -227,7 +240,7 @@ function draw() {
   
     textAlign(LEFT, BASELINE);
     textSize(30);
-    fill(0);
+    fill(255);
     text("Puntos: " + puntos, 20, 35);
   
     if (puntos <= -1) {
@@ -354,8 +367,8 @@ function inicio() {
   image(fondos[0], 0, 0, width, height);
   
   textAlign(CENTER, CENTER);  
-  textSize(50)
-  fill(0)
+  textSize(50);
+  fill(255);
   text("Arreglate rapido!!", 400, 100);
   
   btninicio.dibujar();
