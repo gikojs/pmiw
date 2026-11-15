@@ -1,3 +1,5 @@
+//lin de video explicativo: https://www.youtube.com/watch?si=wydoIUyZgFBwDrjj&v=pXpA5FfL49M&feature=youtu.be
+
 let creditosY = 0;
 
 let sonido = 0;
