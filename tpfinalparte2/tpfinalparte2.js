@@ -215,9 +215,9 @@ function setup() {
   sganar = loadSound('data/ganar.mp3');
   sperder = loadSound('data/perder.mp3');
   
-  obj.push(new objeto(100, -30, 30, 2, img[0]));
-  obj.push(new objeto(300, -100, 40, 4, img[1]));
-  obj.push(new objeto(500, -200, 25, 3, img[2]));
+  obj.push(new objeto(100, -30, 30, 4, img[0]));
+  obj.push(new objeto(300, -100, 40, 6, img[1]));
+  obj.push(new objeto(500, -200, 25, 5, img[2]));
 }
 
 function draw() {
